@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Month review: June 2020"
-date:   2020-07-06 15:00:00 +0100
-categories: pepy
+Title: Month review: June 2020
+Date:   2020-07-06 15:00:00 +0100
+Category: blog
+Tags: pepy
+URL: pepy/2020/07/06/month-review-june-2020.html
+SAVE_AS: pepy/2020/07/06/month-review-june-2020.html
 ---
 
 This month we worked on something different, we send our first downloads report. Along with that we maintained the web and did some small changes.

@@ -1,8 +1,10 @@
 ---
-layout: post
-title: "Dependency Injection in Python with Pinject"
-date: 2019-12-21 15:00:00 +0100
-categories: python patterns
+Title:"Dependency Injection in Python with Pinject"
+Date: 2019-12-21 15:00:00 +0100
+Category: blog
+Tags: python patterns
+URL: python/patterns/2019/12/21/dependency-injection-with-pinject.html
+SAVE_AS: python/patterns/2019/12/21/dependency-injection-with-pinject.html
 ---
 
 In this post, you will learn the basic principles of Dependency Injection and how to implement it in Python using the Pinject library.

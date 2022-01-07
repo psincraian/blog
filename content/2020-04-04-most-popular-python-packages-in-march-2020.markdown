@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Most popular python packages in March 2020"
-date:   2020-04-04 20:00:00 +0100
-categories: python
+Title: Most popular python packages in March 2020
+Date:   2020-04-04 20:00:00 +0100
+Category: blog
+Tags: python
+URL: python/2020/04/04/most-popular-python-packages-in-march-2020.html
+SAVE_AS: python/2020/04/04/most-popular-python-packages-in-march-2020.html
 ---
 
 Let's continue with the most trending python packages, this time the most popular packages in March 2020.

@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Most popular python packages in November 2019"
-date:   2019-12-14 20:00:00 +0100
-categories: python packages stats
+Title: Most popular python packages in November 2019
+Date:   2019-12-14 20:00:00 +0100
+Category: blog
+Tags: python packages stats
+URL: python/packages/stats/2019/12/14/most-popular-python-packages-in-november-2019.html
+SAVE_AS: python/packages/stats/2019/12/14/most-popular-python-packages-in-november-2019.html
 ---
 
 I want to start to promote new and exciting python packages. To do so, I started this series of posts about the most popular Python packages of the previous month.

@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "View download stats of Python libraries"
-date:   2019-12-08 11:46:42 +0100
-categories: pepy.tech
+Title: View download stats of Python libraries
+Date:   2019-12-08 11:46:42 +0100
+Category: blog
+Tags: pepy.tech
+URL: pepy.tech/2019/12/08/view-download-stats-of-python-libraries.html
+SAVE_AS: pepy.tech/2019/12/08/view-download-stats-of-python-libraries.html
 ---
 I remember when I started my project Climoji, I wanted to see how many downloads it had and if it was useful.
 
@@ -20,6 +22,6 @@ Now it is quite popular in the Python community, as a lot of popular libraries u
 
 Here is the number of users visiting [pepy.tech](pepy.tech) each week from the beginning of the project. Currently, the site has over 1000 weekly visitors.
 
-![Visitors of pepy.tech until Desember of 2019](/assets/2019_desember_usage_of_pepy.png)
+![Visitors of pepy.tech until Desember of 2019]({static}/static/2019_desember_usage_of_pepy.png)
 
 I hope this project helped the community. I will try to improve it in the future.

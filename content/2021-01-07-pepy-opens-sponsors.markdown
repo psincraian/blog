@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "pepy.tech opens sponsors program"
-date:   2021-01-07 15:00:00 +0100
-categories: pepy
+Title: pepy.tech opens sponsors program
+Date:   2021-01-07 15:00:00 +0100
+Category: blog
+Tags: pepy
+URL: pepy/2021/01/07/pepy-opens-sponsors.html
+SAVE_AS: pepy/2021/01/07/pepy-opens-sponsors.html
 ---
 
 

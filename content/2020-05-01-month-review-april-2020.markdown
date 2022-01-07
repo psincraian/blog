@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Month review: April 2020"
-date:   2020-05-01 12:00:00 +0100
-categories: pepy
+Title: Month review: April 2020
+Date:   2020-05-01 12:00:00 +0100
+Category: blog
+Tags: pepy
+URL: pepy/2020/05/01/month-review-april-2020.html
+SAVE_AS: pepy/2020/05/01/month-review-april-2020.html
 ---
 
 This month has been very productive for pepy.tech, we deployed one of the most critical features, we hit new records, and we opened our Patreon account 🤗
@@ -11,7 +13,7 @@ This month has been very productive for pepy.tech, we deployed one of the most c
 
 View download stats by package version is the most significant feature introduced since I started pepy.tech two years ago. With this feature, you can check what is the most popular version of a package, how are the downloads stats evolving per package version or what versions can you deprecate.  
  
-![pepy chart](/assets/2020-05-01_download-stats.png)
+![pepy chart]({static}/static/2020-05-01_download-stats.png)
 
 Alongside with this feature we deployed:
 * View download stats in the versions search box.

@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Month review: May 2020"
-date:   2020-06-01 15:00:00 +0100
-categories: pepy
+Title: Month review: May 2020
+Date:   2020-06-01 15:00:00 +0100
+Category: blog
+Tags: pepy
+URL: pepy/2020/06/01/month-review-may-2020.html
+SAVE_AS: pepy/2020/06/01/month-review-may-2020.html
 ---
 
 This month we have focused on improving one basic thing: user experience. I’m not an expert in UX but there were fundamental issues and some improvements. Hopefully, now the website is easier to use.

@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Sorting strings in Python"
-date:   2020-04-12 11:00:00 +0100
-categories: python
+Title: Sorting strings in Python
+Date:   2020-04-12 11:00:00 +0100
+Category: blog
+Tags: python
+URL: python/2020/04/12/sorting-strings-in-python.html
+SAVE_AS: python/2020/04/12/sorting-strings-in-python.html
 ---
 
 In this post, I focus on explaining string sorting. I know that Python already has a good sorting algorithm, but it’s missing one: natural sort! Luckily, there is an easy solution ;)

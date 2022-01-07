@@ -1,8 +1,10 @@
 ---
-layout: post
-title: "🎂 2 years of pepy.tech 🎂"
-date: 2020-03-31 18:00:00 +0100
-categories: pepy
+Title:"🎂 2 years of pepy.tech 🎂"
+Date: 2020-03-31 18:00:00 +0100
+Category: blog
+Tags: pepy
+URL: pepy/2020/03/31/2-years-of-pepy.html
+SAVE_AS: pepy/2020/03/31/2-years-of-pepy.html
 ---
 
 # 📖 Some history
@@ -14,7 +16,7 @@ I love Python.
 
 Two years ago, I registered the domain, concretely on March 10 of 2018, and since then things have changed a little bit. The first version of PePy was using Bootstrap, hosted in Google App Engine, and only had 50 visitors with a lot of propaganda in Python forums. Nowadays, none of these apply.
 
-![pepy.tech in 2018](/assets/2018_pepy.png)
+![pepy.tech in 2018]({static}/static/2018_pepy.png)
 
 I had the service deployed in Google Cloud, then AWS, then Heroku, and finally DigitalOcean. I always switched for the same reason: money 💵. Having to pay 50$ to host an open-source project without any income is not suitable for my pocket. Now, I’m paying 6$ with VAT included in DigitalOcean.
 

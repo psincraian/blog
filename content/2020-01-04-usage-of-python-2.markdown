@@ -1,8 +1,10 @@
 ---
-layout: post
-title: "Usage of Python 2"
-date: 2020-01-04 18:00:00 +0100
-categories: python
+Title:"Usage of Python 2"
+Date: 2020-01-04 18:00:00 +0100
+Category: blog
+Tags: python
+URL: python/2020/01/04/usage-of-python-2.html
+SAVE_AS: python/2020/01/04/usage-of-python-2.html
 ---
 
 The main question that we want to answer in this article is that if Python 2 is still used. Then we will try to analyze the evolution of Python 2 and Python 3.
@@ -29,7 +31,7 @@ At the beginning of 2019, the usage of Python 2 was having a peak of 60% of all 
 
 By the end of 2019, Python 2 represented 44% of PyPi downloads. So in a year, the usage of Python 2 decreased by 15%. In the next chart, you can see the evolution week by week. 
 
-![Usage of Python 2 and Python 3](/assets/2020_usage_of_python2_and_python3.svg)
+![Usage of Python 2 and Python 3]({static}/static/2020_usage_of_python2_and_python3.svg)
 
 Some interesting thing to notice here is that in the week number 30 of the year, that corresponds to the middle of July, for the first time Python 3 had more downloads than Python 2.
 
@@ -39,7 +41,7 @@ Now, we only now the percentages of people using Python 2 and Python 3, but we d
 
 Take a look at the following chart:
 
-![Downloads of Python 2 and Python 3](/assets/2020_downloads_of_python2_and_python3.svg)
+![Downloads of Python 2 and Python 3]({static}/static/2020_downloads_of_python2_and_python3.svg)
 
 Analyzing the number of downloads, we can observe that the downloads of Python 2 are still increasing. At the beginning of 2019, 280 million packages were installed using Python 2 in a week. At the end of the same year, the number of downloads increased to 370 million downloads. Python 2 is growing like 2 million downloads per week.
 
