@@ -1,5 +1,5 @@
 ---
-Title:"🎂 2 years of pepy.tech 🎂"
+Title: 🎂 2 years of pepy.tech 🎂
 Date: 2020-03-31 18:00:00 +0100
 Category: blog
 Tags: pepy

@@ -1,5 +1,5 @@
 ---
-Title:"Dependency Injection in Python with Pinject"
+Title: Dependency Injection in Python with Pinject
 Date: 2019-12-21 15:00:00 +0100
 Category: blog
 Tags: python patterns

@@ -1,5 +1,5 @@
 ---
-Title:"Usage of Python 2"
+Title: Usage of Python 2
 Date: 2020-01-04 18:00:00 +0100
 Category: blog
 Tags: python
