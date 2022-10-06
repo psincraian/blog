@@ -3,6 +3,7 @@ SITENAME = "Petru's blog"
 SITEURL = ''
 
 PATH = 'content'
+THEME = 'themes/current'
 
 TIMEZONE = 'Europe/Madrid'
 
