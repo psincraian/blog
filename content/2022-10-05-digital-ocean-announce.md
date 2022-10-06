@@ -13,7 +13,7 @@ DigitalOcean will sponsor us with a generous amount of credit that will be used 
 
 In the next blog post, we will be showing the architecture behind pepy.tech.
 
-If you pepy.tech help us:
+Help us mantaining the project live:
 
 👉 Star our repo  <a class="github-button" href="https://github.com/psincraian/pepy" data-icon="octicon-star" data-show-count="true" aria-label="Star psincraian/pepy on GitHub">Star</a> 
 
