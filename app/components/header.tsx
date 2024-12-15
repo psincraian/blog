@@ -5,7 +5,7 @@ const Header = () => {
     <header className="bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold">
-          Your Name
+          Petru Rares Sincraian
         </Link>
         <ul className="flex space-x-4">
           <li>

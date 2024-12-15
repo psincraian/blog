@@ -34,7 +34,7 @@ const timelineData: TimelineItem[] = [
   // Add more timeline items as needed
 ]
 
-const CareerTimeline = () => {
+export const CareerTimeline = () => {
   return (
     <section className="mb-16">
       <h2 className="text-3xl font-bold mb-8 text-center">Career Timeline</h2>
@@ -71,6 +71,3 @@ const CareerTimeline = () => {
     </section>
   )
 }
-
-export default CareerTimeline
-

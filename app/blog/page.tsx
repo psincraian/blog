@@ -12,7 +12,7 @@ export default async function BlogIndex() {
           <Link key={post.slug} href={`/blog/${post.slug}`} className="block">
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
               <img
-                src={post.frontmatter.image}
+                src={post.frontmatter.image ?? "undefined"}
                 alt={post.frontmatter.title}
                 className="w-full h-48 object-cover"
               />
@@ -21,7 +21,7 @@ export default async function BlogIndex() {
                 <p className="text-gray-600 mb-2">{post.frontmatter.excerpt}</p>
                 <div className="flex justify-between text-sm text-gray-500">
                   <span>{post.frontmatter.date}</span>
-                  <span>{post.readingTime} min read</span>
+                  <span>{post.readingTime}</span>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import CareerTimeline from './components/career-timeline'
+import { CareerTimeline } from './components/career-timeline'
 
 export default function Home() {
   return (

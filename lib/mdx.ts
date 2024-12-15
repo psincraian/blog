@@ -1,7 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { serialize } from 'next-mdx-remote/serialize'
 import readingTime from 'reading-time'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
@@ -12,12 +11,11 @@ export async function getPostBySlug(slug: string) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   const { data, content } = matter(fileContents)
-  const mdxSource = await serialize(content);
 
   return {
     slug: realSlug,
     frontmatter: data,
-    content: mdxSource,
+    content: content,
     readingTime: readingTime(content).text,
   }
 }
