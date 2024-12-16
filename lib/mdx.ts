@@ -1,22 +1,17 @@
 import fs from 'fs'
 import path from 'path'
-import matter from 'gray-matter'
-import readingTime from 'reading-time'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
 export async function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.mdx$/, '')
-  const fullPath = path.join(postsDirectory, `${realSlug}.mdx`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-  const { data, content } = matter(fileContents)
+  const {readingTime, frontmatter, default: source} = await import(`/posts/${realSlug}.mdx`)
 
   return {
     slug: realSlug,
-    frontmatter: data,
-    content: content,
-    readingTime: readingTime(content).text,
+    frontmatter: frontmatter,
+    content: source,
+    readingTime: readingTime.text,
   }
 }
 

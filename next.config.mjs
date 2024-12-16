@@ -1,5 +1,9 @@
 import createMDX from '@next/mdx'
 import rehypePrettyCode from "rehype-pretty-code";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import readingTime from "remark-reading-time";
+import readingMdxTime from "remark-reading-time/mdx.js";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -11,7 +15,12 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [
+      remarkFrontmatter,
+      remarkMdxFrontmatter,
+      readingTime,
+      readingMdxTime,
+    ],
     rehypePlugins: [
       [
         rehypePrettyCode, {

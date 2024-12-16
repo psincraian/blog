@@ -1,7 +1,6 @@
 import { getPostBySlug, getAllPosts } from '@/lib/mdx'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { BlogContent } from './components/blog-content'
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -11,7 +10,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = await params
+  const { slug } = params
   const post = await getPostBySlug(slug)
   if (!post) return {}
 
@@ -40,10 +39,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
-    const { slug } = await params
+    const { slug } = params
 
   const post = await getPostBySlug(slug)
-
+  const source = post.content()
+  console.log("Post", source)
   if (!post) {
     notFound()
   }
@@ -65,7 +65,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         <span>{post.readingTime}</span>
       </div>
       <div className="prose max-w-none mb-8">
-        <BlogContent content={post.content}/>
+        {post.content()}
       </div>
     </article>
   )
