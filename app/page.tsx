@@ -7,8 +7,8 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8">
       <section className="text-center mb-16">
         <Image
-          src="/your-photo.jpg"
-          alt="Your Name"
+          src="/me.jpeg"
+          alt="Petru Rares Sincraian"
           width={200}
           height={200}
           className="rounded-full mx-auto mb-4"
@@ -23,7 +23,7 @@ export default function Home() {
         <div className="flex justify-center space-x-4">
           <Link
             href="/blog"
-            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
+            className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
           >
             Read My Blog
           </Link>
