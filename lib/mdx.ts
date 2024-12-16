@@ -1,7 +1,19 @@
 import fs from 'fs'
 import path from 'path'
+import {JSX} from "react";
 
 const postsDirectory = path.join(process.cwd(), 'posts')
+
+export interface Post {
+  slug: string
+  frontmatter: {
+    title: string
+    date: string
+    image: string
+  },
+  content: () => JSX.Element,
+  readingTime: string
+}
 
 export async function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.mdx$/, '')
@@ -12,7 +24,7 @@ export async function getPostBySlug(slug: string) {
     frontmatter: frontmatter,
     content: source,
     readingTime: readingTime.text,
-  }
+  } as Post
 }
 
 export async function getAllPosts() {

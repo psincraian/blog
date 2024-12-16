@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CareerTimeline } from './components/career-timeline'
+import LatestPosts from "@/app/components/latest-posts";
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
         </div>
       </section>
 
+      <LatestPosts />
       <CareerTimeline />
     </div>
   )
