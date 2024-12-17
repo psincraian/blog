@@ -23,7 +23,15 @@ export async function fetchTopRepositories(): Promise<Repository[] | Error> {
         }
 
         const jsonResponse = await response.json();
-        const repos = await jsonResponse.map((repo: any) => {
+        const repos = await jsonResponse.map((repo: {
+            id: number;
+            name: string;
+            description: string;
+            html_url: string;
+            stargazers_count: number;
+            forks_count: number;
+            language: string
+        }) => {
             return {
                 id: repo.id,
                 name: repo.name,

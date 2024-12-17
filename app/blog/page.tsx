@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { getAllPosts } from '@/lib/mdx'
+import {getAllPosts} from '@/lib/mdx'
+import Image from "next/image";
 
 export default async function BlogIndex() {
   const posts = await getAllPosts()
@@ -11,7 +12,7 @@ export default async function BlogIndex() {
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="block">
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-              <img
+                <Image
                 src={post.frontmatter.image ?? "undefined"}
                 alt={post.frontmatter.title}
                 className="w-full h-48 object-cover"

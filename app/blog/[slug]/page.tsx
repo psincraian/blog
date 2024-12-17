@@ -1,6 +1,6 @@
-import { getPostBySlug, getAllPosts } from '@/lib/mdx'
+import {getAllPosts, getPostBySlug} from '@/lib/mdx'
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
+import {notFound} from 'next/navigation'
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -9,8 +9,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params
+export async function generateMetadata({params}: { params: Promise<{ slug: string }> }) {
+  const {slug} = await params
   const post = await getPostBySlug(slug)
   if (!post) return {}
 
@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-    const { slug } = params
+export default async function BlogPost({params}: { params: Promise<{ slug: string }> }) {
+  const {slug} = await params
 
   const post = await getPostBySlug(slug)
   const source = post.content()
