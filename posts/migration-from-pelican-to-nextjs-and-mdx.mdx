@@ -1,0 +1,78 @@
+---
+title: Migration from Pelican to Next.js
+date: 2024-12-15 08:00:00
+image: /blog-images/hello-world.jpeg
+excerpt: Since I learned about Next.js, I fell in love with this tool. I like the features and the opinionated framework it provides. Migration from Pelican to Next.js
+---
+
+I've been using Next.js on pepy.tech since 2023, and I fell in love with the framework from the start. Here are some key benefits of using Next.js:
+
+* **Server-Side Rendering (SSR)**: Next.js allows for server-side rendering, which helps with SEO and improves initial page load performance since content is pre-rendered.
+* **Static Generation**: You can generate static HTML pages that can be served directly from a CDN, providing even faster load times and better performance.
+* **Automatic Code Splitting**: Next.js splits your code into smaller chunks, ensuring that users only load what they need, which speeds up page transitions.
+* **Built-in CSS and Sass Support**: Easy integration with CSS, Sass, or CSS-in-JS solutions like styled-components, making styling straightforward.
+* **API Routes**: You can create backend routes directly within your Next.js project, simplifying the architecture for full-stack applications.
+
+Next.js is a full React framework that's opinionated, and it offers best practices for frontend development. This has been really useful for me as a backend developer.
+
+## Obsidian and Markdown
+
+I use Obsidian to write my notes in markdown. Having my posts already formatted in markdown significantly reduces the burden of publishing:
+
+* **Seamless Integration**: Since my notes are already in markdown, I can directly convert them into blog posts without needing to rewrite content or deal with complex formatting issues.
+* **Reduced Overhead**: This workflow means less time spent on transforming notes into publishable content, allowing for more frequent updates to my blog.
+* **Consistency**: Using markdown everywhere keeps my writing consistent, both in notes and published posts, which helps maintain a uniform style across my content.
+
+## What is MDX?
+
+MDX allows you to write JSX in markdown. Here's a simple example:
+
+```mdx
+<div style={{backgroundColor: 'violet', padding: '1rem'}}>
+    JSX in markdown!
+</div>
+```
+
+When rendered, this MDX would look like:
+
+<div style={{backgroundColor: 'violet', padding: '1rem'}}>
+    JSX in markdown!
+</div>
+
+
+## Rehype and Remark
+
+**Remark** is a Markdown processor that transforms markdown to an abstract syntax tree (AST) and back, used for parsing and manipulating markdown content with plugins.
+**Rehype** functions similarly but for HTML, allowing for the processing and transformation of the DOM tree with plugins for various enhancements.
+
+Some of the plugins that I use are the following:
+
+```ts
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [
+      remarkGfm, // Add support for Github Markdown
+      remarkFrontmatter, // Add YAML support for markdown. Useful for adding extra information like title or the main image.
+      remarkMdxFrontmatter, // same as frontmatter but for MDX.
+      readingTime, // give an estimate on how long the text will take to read
+      readingMdxTime, // same for MDX
+    ],
+    rehypePlugins: [
+      [
+        rehypePrettyCode, { // To add code highlighting
+          theme: "github-light",
+        }]],
+  },
+});
+```
+
+## Challenges Faced During Migration
+
+The migration wasn't without its hurdles:
+
+* **Tailwind CSS Configuration**: I had to modify Tailwind to include a mdx-components.tsx file for my custom components to work properly within MDX.
+* **MDX-Remote Issues**: Initially, I tried using MDX-Remote, but I ran into issues with remark and rehype plugins. However, by looking at [carloscuesta.me source code](https://github.com/carloscuesta/carloscuesta.me/blob/master/src/utils/api/blog/index.ts), I learned that I could directly import and generate MDX, which solved my problems.
+* **Migration**: even if the input is plan Markdown, still the migration was time-consuming as the structure of the urls, the files, or the build needed manual adjustments.
+
+This migration has dramatically improved my ability to create dynamic, component-rich content directly from markdown, making my blog more interactive and visually appealing.
