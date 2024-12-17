@@ -1,4 +1,7 @@
-import {Github, Instagram, Linkedin, Twitter} from 'lucide-react'
+import {Github, Linkedin} from 'lucide-react'
+import {ThreadsIcon} from "@/app/components/ThreadsIcon";
+import React from "react";
+import {XIcon} from "@/app/components/XIcon";
 
 const Footer = () => {
   return (
@@ -11,16 +14,16 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-500 transition duration-300"
           >
-            <Twitter size={24} />
+            <XIcon/>
             <span className="sr-only">Twitter</span>
           </a>
           <a
-              href="https://www.threads.net/@psincraian"
+              href="https://www.threads.net/@petrurares"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-purple-500 transition duration-300"
           >
-            <Instagram size={24} />
+            <ThreadsIcon/>
             <span className="sr-only">Threads</span>
           </a>
           <a
@@ -29,7 +32,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-700 transition duration-300"
           >
-            <Linkedin size={24} />
+            <Linkedin size={24} className=""/>
             <span className="sr-only">LinkedIn</span>
           </a>
           <a
