@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: post.frontmatter.excerpt,
       type: 'article',
       publishedTime: post.frontmatter.date,
-      authors: ['Your Name'],
+      authors: ['Petru Rares Sincraian'],
       images: [
         {
           url: post.frontmatter.image,
@@ -53,9 +53,9 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       <Image
         src={post.frontmatter.image}
         alt={post.frontmatter.title ?? "no alt provided"}
-        width={1200}
+        width={800}
         height={200}
-        className="rounded-lg mb-8"
+        className="rounded-lg mb-8 mx-auto"
         objectFit='cover'
         placeholder='empty'
       />

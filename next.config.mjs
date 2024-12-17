@@ -4,6 +4,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import readingTime from "remark-reading-time";
 import readingMdxTime from "remark-reading-time/mdx.js";
+import remarkGfm from "remark-gfm";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -16,6 +17,7 @@ const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [
+      remarkGfm,
       remarkFrontmatter,
       remarkMdxFrontmatter,
       readingTime,

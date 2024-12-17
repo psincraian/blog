@@ -10,6 +10,7 @@ export interface Post {
     title: string
     date: string
     image: string
+    excerpt: string
   },
   content: () => JSX.Element,
   readingTime: string

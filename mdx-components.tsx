@@ -12,7 +12,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: ({ children }) => <h5 className="text-base font-semibold mt-2 mb-1">{children}</h5>,
 
     // Paragraphs and lists
-    p: ({ children }) => <p className="mb-4 leading-relaxed">{children}</p>,
+    p: ({ children }) => <p className="pb-2 mb-2 leading-relaxed">{children}</p>,
     ul: ({ children }) => <ul className="list-disc pl-6 mb-4">{children}</ul>,
     ol: ({ children }) => <ol className="list-decimal pl-6 mb-4">{children}</ol>,
     li: ({ children }) => <li className="mb-1">{children}</li>,
@@ -26,7 +26,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Block elements
     blockquote: ({ children }) => (
-        <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4">{children}</blockquote>
+        <blockquote className="px-4 pt-2 bg-gray-100">{children}</blockquote>
     ),
     pre: ({ children }) => (
         <pre className="bg-gray-100 rounded p-4 overflow-x-auto mb-4 font-mono text-sm">
