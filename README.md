@@ -2,18 +2,15 @@
 
 Hey, this is my personal blog. I'm a software engineer and I like writting about different things related to programming. I usually write about CS topics, Python, Java, and personal projects.
 
-This blog is built with [pelican](https://getpelican.com/), a static site generator.
+This blog is built with Next.js
 
 ## Useful commands
 
-Start the server with auto reload:
+First, run the development server:
 
-```shell
-pelican -l -r
+```bash
+npm run dev
 ```
 
-Generate the site:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```shell
-pelican content
-```
