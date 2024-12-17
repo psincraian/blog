@@ -1,52 +1,11 @@
-'use client'
-
-import {useEffect, useState} from 'react'
 import {GitFork, Star} from 'lucide-react'
+import {fetchTopRepositories} from "@/lib/github";
 
-interface Repository {
-    id: number
-    name: string
-    description: string
-    html_url: string
-    stargazers_count: number
-    forks_count: number
-    language: string
-}
+export default async function TopGithubProjects() {
+    const repos = await fetchTopRepositories();
 
-async function fetchTopRepositories(): Promise<Repository[]> {
-    const response = await fetch('/api/github-projects')
-    if (!response.ok) {
-        throw new Error('Failed to fetch repositories')
-    }
-    return response.json()
-}
-
-export default function TopGithubProjects() {
-    const [repos, setRepos] = useState<Repository[]>([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
-
-    useEffect(() => {
-        async function loadRepositories() {
-            try {
-                const data = await fetchTopRepositories()
-                setRepos(data)
-                setIsLoading(false)
-            } catch (err) {
-                setError('Failed to load repositories')
-                setIsLoading(false)
-            }
-        }
-
-        loadRepositories()
-    }, [])
-
-    if (isLoading) {
-        return <div className="text-center">Loading projects...</div>
-    }
-
-    if (error) {
-        return <div className="text-center text-red-500">{error}</div>
+    if (repos instanceof Error) {
+        return <div>Error: {repos.message}</div>
     }
 
     return (
