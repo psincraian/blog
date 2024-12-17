@@ -1,5 +1,5 @@
-import { Inter } from 'next/font/google'
-import { Metadata } from 'next'
+import {Inter} from 'next/font/google'
+import {Metadata} from 'next'
 import Header from './components/header'
 import Footer from './components/footer'
 import './globals.css'
@@ -8,15 +8,15 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Petru Rares Sincraian - Personal Website',
-  description: 'Personal website of Your Name, showcasing projects, blog, and professional experience.',
+  description: 'Personal website of Petru Rares Sincraian, showcasing projects, blog, and professional experience.',
   openGraph: {
-    title: 'Your Name - Personal Website',
-    description: 'Personal website of Your Name, showcasing projects, blog, and professional experience.',
-    url: 'https://yourwebsite.com',
-    siteName: 'Your Name',
+    title: 'Petru Rares Sincraian - Personal Website',
+    description: 'Personal website of Petru Rares Sincraian, showcasing projects, blog, and professional experience.',
+    url: 'https://petru.tech',
+    siteName: 'Petru Rares Sincraian',
     images: [
       {
-        url: 'https://yourwebsite.com/og-image.jpg',
+        url: 'https://petru.tech/me.jpeg',
         width: 1200,
         height: 630,
       },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Your Name - Personal Website',
+    title: 'Petru Rares Sincraian - Personal Website',
     card: 'summary_large_image',
   },
   icons: {

@@ -1,4 +1,4 @@
-import { Twitter, Instagram, Linkedin, Github } from 'lucide-react'
+import {Github, Instagram, Linkedin, Twitter} from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-center space-x-6">
           <a
-            href="https://twitter.com/yourusername"
+              href="https://twitter.com/psincraian"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-500 transition duration-300"
@@ -15,7 +15,7 @@ const Footer = () => {
             <span className="sr-only">Twitter</span>
           </a>
           <a
-            href="https://www.threads.net/@yourusername"
+              href="https://www.threads.net/@psincraian"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-purple-500 transition duration-300"
@@ -24,7 +24,7 @@ const Footer = () => {
             <span className="sr-only">Threads</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/psincraian"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-700 transition duration-300"
@@ -33,7 +33,7 @@ const Footer = () => {
             <span className="sr-only">LinkedIn</span>
           </a>
           <a
-            href="https://github.com/yourusername"
+              href="https://github.com/psincraian"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-gray-900 transition duration-300"
@@ -43,7 +43,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="text-center mt-8 text-gray-600">
-          © {new Date().getFullYear()} Your Name. All rights reserved.
+          © {new Date().getFullYear()} Petru Rares Sincraian. All rights reserved.
         </p>
       </div>
     </footer>
