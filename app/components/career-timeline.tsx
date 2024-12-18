@@ -70,35 +70,33 @@ const timelineData: TimelineItem[] = [
             'Contributed to the FFmpeg project, improving testing accuracy and system stability. Stack: C, Python, Docker',
         ],
     }
-    // Add more timeline items as needed
 ]
 
-export const CareerTimeline = () => {
+export function CareerTimeline() {
     return (
         <section className="mb-16">
             <h2 className="text-3xl font-bold mb-8 text-center">Career Timeline</h2>
-            <div className="relative">
+            <div className="max-w-4xl mx-auto">
                 {timelineData.map((item, index) => (
-                    <div key={index} className="mb-8 flex justify-between items-center">
-                        <div className="w-1/2 pr-8 text-right">
+                    <div key={index} className="mb-12 flex items-start">
+                        <div className="flex-shrink-0 mr-6">
+                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <Image
+                                    src={item.logo}
+                                    alt={`${item.company} logo`}
+                                    width={48}
+                                    height={48}
+                                    className="rounded-full"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex-grow">
                             <h3 className="text-xl font-semibold">{item.company}</h3>
-                            <p className="text-gray-600">{item.position}</p>
-                            <p className="text-sm text-gray-500">{item.duration}</p>
-                        </div>
-                        <div
-                            className="z-10 backdrop-blur p-1 border-gray-600 border-2 rounded-full flex items-center justify-center">
-                            <Image
-                                src={item.logo}
-                                alt={`${item.company} logo`}
-                                width={64}
-                                height={64}
-                                className="rounded-full"
-                            />
-                        </div>
-                        <div className="w-1/2 pl-8">
-                            <ul className="list-disc pl-4">
+                            <p className="text-gray-600 mb-1">{item.position}</p>
+                            <p className="text-sm text-gray-500 mb-3">{item.duration}</p>
+                            <ul className="list-disc pl-5 space-y-2">
                                 {item.achievements.map((achievement, i) => (
-                                    <li key={i} className="mb-2 text-sm">
+                                    <li key={i} className="text-gray-700">
                                         {achievement}
                                     </li>
                                 ))}
@@ -106,7 +104,6 @@ export const CareerTimeline = () => {
                         </div>
                     </div>
                 ))}
-                <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-gray-200 transform -translate-x-1/2"></div>
             </div>
         </section>
     )
