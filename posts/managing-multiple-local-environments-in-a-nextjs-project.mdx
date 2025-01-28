@@ -1,0 +1,99 @@
+---
+title: Managing Multiple Local Environments in a Next.js Project
+date: 2025-01-28 08:00:00
+image: /blog-images/nextjs-blackboard.jpg
+excerpt: 
+---
+
+## Introduction
+
+When developing the frontend for pepy.tech, we faced a challenge: needing multiple local development environments. 
+Specifically, we wanted the flexibility to toggle between pointing to the live pepy.tech domain and a local backend server. 
+While Next.js offers built-in environment variable handling, its default configuration fell short and limited for our use case. 
+Here’s how we solved it (and the trade-offs we encountered).
+
+## The Problem: Next.js Environment File Limitations
+
+Next.js natively supports environment files with the following priority order:
+
+1. `process.env` (directly injected variables)
+2. `.env.$(NODE_ENV).local` (e.g., .env.development.local)
+3. `.env.local` (ignored in test environments)
+4. `.env.$(NODE_ENV)` (e.g., .env.production)
+5. `.env`
+
+
+This structure works well for basic setups, but we needed two distinct local environments:
+
+* **Local Backend**: Connect our local frontend to a backend running on localhost.
+* **Live**: Connect our local frontend to the production pepy.tech API.
+
+
+The default Next.js setup doesn’t allow custom environment "profiles" beyond development, test, and production. Creating a `.env.local_server` file, for example, isn’t natively recognized.
+
+
+## The Solution: Leveraging env-cmd
+
+To bypass this limitation, we used the env-cmd package. This tool lets you specify a custom `.env` file when running commands.
+Here’s how we implemented it:
+
+
+**Step 1: Create a Custom Environment File**
+Add a `.env.local_server` file with variables specific to your local server (e.g., API endpoints):
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+**Step 2: Update package.json Scripts**
+
+Modify your scripts to include a dedicated command for the local server environment:
+
+```json
+{
+  "scripts": {
+    "dev": "next dev", // Uses default .env.development
+    "dev:local": "env-cmd -f .env.local_server next dev"
+  }
+}
+```
+
+**How It Works**
+
+* Running `npm run dev:local` loads variables from `.env.local_server` **first**, followed by Next.js’s default hierarchy.
+* The `env-cmd` tool injects your custom variables into `process.env`, ensuring they take precedence over other .env files.
+
+
+## Key benefits
+
+1. **No Code Changes Required**: Switch environments by running dev or dev:local.
+2. **Clean Separation**: Keep live and local configurations isolated.
+3. **Flexibility**: Easily add more environments (e.g., dev:staging) with new .env files.
+
+
+## The Catch: Hot Reload Limitations
+
+While this approach works, we noticed one downside: changes to `.env.local_server` don’t trigger hot reloads. To apply new values, you’ll need to:
+
+* Stop the dev server (`Ctrl + C`).
+* Restart it with `npm run dev:local`.
+
+This occurs because `env-cmd` loads the file once at startup, unlike Next.js’s built-in environment handling, which watches .env files.
+
+
+## Conclusion
+
+For projects requiring multiple local environments, `env-cmd` offers a simple yet powerful workaround.
+While the hot reload limitation adds a minor inconvenience, the benefits of clean environment separation far outweigh the drawback.
+
+Alternatives to Explore:
+
+* Use a library like `dotenv` with a custom `NODE_ENV` value.
+* Dynamically load environment variables at runtime (though this may impact performance).
+
+Have you tackled this problem differently? Share your approach in the comments!
+
+
+**Final Tip**: Always add .env*.local to your .gitignore to avoid exposing secrets!
+
+Happy coding! 🚀
