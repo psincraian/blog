@@ -49,7 +49,7 @@ export default async function BlogPost({params}: { params: Promise<{ slug: strin
   }
 
   return (
-    <article className="container mx-auto px-4 py-8">
+    <article className="container mx-auto max-w-4xl px-4 py-8">
       <Image
         src={post.frontmatter.image}
         alt={post.frontmatter.title ?? "no alt provided"}

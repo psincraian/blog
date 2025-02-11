@@ -39,7 +39,7 @@ export default function Home() {
 
       <GithubProjects/>
       <LatestPosts />
-      <CareerTimeline />
+      { /* <CareerTimeline /> */ }
     </div>
   )
 }
