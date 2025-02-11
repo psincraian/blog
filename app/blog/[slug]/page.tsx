@@ -56,7 +56,6 @@ export default async function BlogPost({params}: { params: Promise<{ slug: strin
         width={800}
         height={200}
         className="rounded-lg mb-8 mx-auto"
-        objectFit='cover'
         placeholder='empty'
       />
       <h1 className="text-4xl font-bold mb-4">{post.frontmatter.title}</h1>

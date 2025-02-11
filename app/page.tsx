@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import {CareerTimeline} from './components/career-timeline'
 import LatestPosts from "@/app/components/latest-posts";
 import GithubProjects from "@/app/components/github-projects";
 
