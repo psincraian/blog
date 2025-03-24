@@ -1,0 +1,34 @@
+---
+title: pepy.tech - 2025 roadmap
+date: 2025-03-24 08:00:00
+image: /blog-images/pepy-tech-roadmap.jpg
+excerpt: The pepy.tech survey is closed, and now we have a clear roadmap for the year on what to focus on.
+---
+
+Reflecting on the survey responses, it's important to understand customer needs, identify pain points, and determine the features that matter most to you. This feedback is the main tool we use to shape our roadmap and deliver what is important to you.
+
+I will implement the three most voted features: finer-grained downloads, downloads by installer, and downloads by Python version. The other suggestions will be added to GitHub Issues, where people can vote to help us decide which ones to focus on next.
+
+During the survey period, we had 55 respondents. Seventy percent of them found the website through Badges or Google Search. Interestingly, six respondents discovered the website through ChatGPT or other LLMs.
+
+Looking at the priorities, the features that mattered most to you are sorted in order:
+
+1. Finer-grained downloads (e.g., version = 1.1 AND country = 'USA')
+2. Downloads by installer (pip, poetry, etc.)
+3. Downloads by Python version (3.12, 3.13)
+4. Access to five years of download stats
+5. Other download stats (npm downloads, Docker, Terraform)
+
+Some additional features that were proposed include:
+- Dark mode
+- API endpoint to search projects
+- More than five version plots
+- Trending Projects tab
+- Downloads by operating system
+- Improve the UI with dots on graphs
+- Ranges of versions
+- Include more free features
+
+One thing that caught my attention is that some people don't know we have a regex filter in the versions. You can search `2.*` to show all downloads of version 2 or `*` to show the total downloads. I will likely add the `*` as the default version selection.
+
+I will focus more on GitHub Issues to understand what should be implemented next. Soon, I will add a "Sign in with GitHub" option to make the registration process smoother.
