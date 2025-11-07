@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import LatestPosts from "@/app/components/latest-posts";
-import GithubProjects from "@/app/components/github-projects";
+import FeaturedProjects from "@/app/components/github-projects";
 
 export default function Home() {
   return (
@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </section>
 
-      <GithubProjects/>
+      <FeaturedProjects/>
       <LatestPosts />
       { /* <CareerTimeline /> */ }
     </div>
