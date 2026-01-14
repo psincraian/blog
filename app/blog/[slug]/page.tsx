@@ -60,7 +60,7 @@ export default async function BlogPost({params}: { params: Promise<{ slug: strin
       />
       <h1 className="text-4xl font-bold mb-4">{post.frontmatter.title}</h1>
       <div className="flex justify-between text-gray-500 mb-8">
-        <span>{post.frontmatter.date}</span>
+        <span>{new Date(post.frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
         <span>{post.readingTime}</span>
       </div>
       <div className="prose max-w-none mb-8">

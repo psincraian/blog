@@ -24,7 +24,7 @@ export default async function BlogIndex() {
                 <h2 className="text-xl font-semibold mb-2">{post.frontmatter.title}</h2>
                 <p className="text-gray-600 mb-2">{post.frontmatter.excerpt}</p>
                 <div className="flex justify-between text-sm text-gray-500">
-                  <span>{post.frontmatter.date}</span>
+                  <span>{new Date(post.frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   <span>{post.readingTime}</span>
                 </div>
               </div>
