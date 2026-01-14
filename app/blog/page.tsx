@@ -12,11 +12,14 @@ export default async function BlogIndex() {
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="block">
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+              <div className="relative w-full h-48">
                 <Image
-                src={post.frontmatter.image ?? "undefined"}
-                alt={post.frontmatter.title}
-                className="w-full h-48 object-cover"
-              />
+                  src={post.frontmatter.image ?? "/blog-images/hello-world.jpeg"}
+                  alt={post.frontmatter.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">{post.frontmatter.title}</h2>
                 <p className="text-gray-600 mb-2">{post.frontmatter.excerpt}</p>

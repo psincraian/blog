@@ -1,0 +1,99 @@
+---
+title: "Claude Code + Obsidian: My Setup"
+date: 2026-01-14 08:00:00
+image: /blog-images/obsidian-claude-code.png
+excerpt: "I've used Obsidian for 3 years. Capturing notes was never the problem. Organizing them? That's where everything broke down. Then I connected Claude Code to my vault."
+---
+
+I've used Obsidian for 3 years. Capturing notes was never the problem. Organizing them? That's where everything broke down 🥲
+
+My Inbox was a disaster. Notes never got connected. I'd write something and never find it again.
+
+Then, connecting Claude Code to my vault was a game changer.
+
+## The Three Pieces
+
+1. **CLAUDE.md** - Context about my vault structure
+2. **MCP Obsidian Server** - Claude can search and read my entire vault across projects
+3. **Custom Slash Commands** - Small automations that make my day easy
+
+## CLAUDE.md
+
+The `CLAUDE.md` is simple. Just my folder structure:
+
+```
+├── Projects/   # Work + side projects
+├── Areas/      # Home, family, habits
+├── Resources/  # Learning notes
+├── Journal/    # Daily, weekly, monthly
+├── Inbox/      # Quick capture
+└── Archive/    # Old stuff
+```
+
+With this context, Claude routes automatically:
+
+- Python notes → `Resources/Learning/`
+- Work bugs → `Projects/Polar/Tasks/`
+- Groceries → `Inbox/` as temporary
+
+## The Commands
+
+Commands live in `.claude/commands/*.md`. Each one is just markdown with instructions.
+
+### /morning
+
+My daily check-in. One command shows:
+
+- Top 3 priorities from journal
+- Inbox items due today
+- Active challenges ("Day 5 of No Phone at Meals")
+- Todoist tasks
+
+```markdown
+---
+description: Morning check-in
+allowed-tools: Read, Glob, Grep, mcp__todoist__find-tasks-by-date
+---
+
+1. Find today's journal
+2. Show priorities
+3. Check Inbox for due items
+4. Check active challenges in Areas/Rituals/
+5. Pull Todoist tasks
+```
+
+### /day
+
+This one changed everything. I dump random thoughts:
+
+```
+/day fix checkout bug at Polar. Create a new note on why it happened. Also, buy tomatoes
+```
+
+Claude parses and creates:
+
+- `Projects/Polar/Tasks/Checkout`
+- `Inbox/2025-01-13`
+
+All with proper frontmatter. All with `[[wikilinks]]` to related notes.
+
+```markdown
+---
+description: Brain dump → auto-creates notes
+allowed-tools: Read, Write, Glob, Grep
+---
+
+Route each item:
+| Type | Folder |
+|------|--------|
+| Work tasks | Projects/Polar/Tasks/ |
+| Errands | Inbox/ with date |
+| Learning | Resources/Learning/ |
+| Unclear | Ask with 3 suggestions |
+```
+
+## Why It Works
+
+I capture fast and Claude organizes.
+
+No more decision fatigue about where notes should go. No more orphaned ideas lost in my Inbox. I just dump and move on with my day.
