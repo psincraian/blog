@@ -42,22 +42,22 @@ export default async function BlogPost({params}: { params: Promise<{ slug: strin
   const {slug} = await params
 
   const post = await getPostBySlug(slug)
-  const source = post.content()
-  console.log("Post", source)
   if (!post) {
     notFound()
   }
 
   return (
     <article className="container mx-auto max-w-4xl px-4 py-8">
-      <Image
-        src={post.frontmatter.image}
-        alt={post.frontmatter.title ?? "no alt provided"}
-        width={800}
-        height={200}
-        className="rounded-lg mb-8 mx-auto"
-        placeholder='empty'
-      />
+      {!post.frontmatter.hideImage && (
+        <Image
+          src={post.frontmatter.image}
+          alt={post.frontmatter.title ?? "no alt provided"}
+          width={800}
+          height={200}
+          className="rounded-lg mb-8 mx-auto"
+          placeholder="empty"
+        />
+      )}
       <h1 className="text-4xl font-bold mb-4">{post.frontmatter.title}</h1>
       <div className="flex justify-between text-gray-500 mb-8">
         <span>{new Date(post.frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
