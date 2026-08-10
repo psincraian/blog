@@ -1,0 +1,48 @@
+app/components/ai-model-explorer.tsx
+  s_e31a3c92a4397b::t_21e1469e332d31 218,221
+  s_e31a3c92a4397b::t_006b11635848f2 5,113,115,128,146,154,167,174,182,184-198,208
+  s_e31a3c92a4397b::t_d103163221b97e 9-13,141,147,273,282,290,297-299
+  s_e31a3c92a4397b::t_f5e7f8f75de8d2 224
+  s_e31a3c92a4397b::t_602e318775b1b2 24,27-32
+  s_e31a3c92a4397b::t_3846afc69743e1 75,78,80-81,142,145,180,236,245,253-256,258-259
+  s_e31a3c92a4397b::t_ff31b4b1d2e324 229,235,244,250-251,302
+  s_e31a3c92a4397b::t_dfec206feeb155 279-281,285-286,288-289,291-293,306
+  s_e31a3c92a4397b::t_9fe0fb3143324b 157,161
+  s_e31a3c92a4397b::t_6999c2ba1aa83d 36-44,274-278
+  s_e31a3c92a4397b::t_b32de1bbf6a657 283-284,287
+  s_e31a3c92a4397b::t_8f3b26e43bd239 316
+  s_e31a3c92a4397b::t_b9cca09707c71b 76
+  s_e31a3c92a4397b::t_cee932ca83ef90 1-4,6-8,14-23,25-26,33-35,45-74,77,79,82-112,114,116-127,129-140,143-144,148-153,155-156,158-160,162-166,168-173,175-179,181,183,199-207,209-217,219-220,222-223,225-228,230-234,237-243,246-249,252,257,260-272,294-296,300-301,303-305,307-315,317-321
+app/blog/[slug]/page.tsx
+  s_e31a3c92a4397b::t_ec461a6a320365 51-60
+app/globals.css
+  s_e31a3c92a4397b::t_3ae7d5f9fbe886 15-20
+lib/mdx.ts
+  s_e31a3c92a4397b::t_ec461a6a320365 14
+mdx-components.tsx
+  s_e31a3c92a4397b::t_2ef1f59aee0703 5-6,40-52,55-56
+posts/ai-models-price-intelligence.mdx
+  s_e31a3c92a4397b::t_ec461a6a320365 6
+  s_e31a3c92a4397b::t_44a64561f5400f 13
+  s_e31a3c92a4397b::t_993a1c30139b9f 1-4,7-12,14-35
+  s_e31a3c92a4397b::t_7b49b49667e002 5
+app/components/ai-model-data.ts
+  s_e31a3c92a4397b::t_79486dc2981012 28-29,34,36
+  s_e31a3c92a4397b::t_330d7ff638b7a6 1-27,30-33,35,37-113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "9ad98ae087b420f61faa567a4f443ca87be9f6b6",
+  "prompts": {},
+  "sessions": {
+    "s_e31a3c92a4397b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fea9f-1906-7121-ac8d-84305babf007",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Petru Rares Sincraian <psincraian@outlook.com>"
+    }
+  }
+}
