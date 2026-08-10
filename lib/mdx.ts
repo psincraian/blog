@@ -11,6 +11,7 @@ export interface Post {
     date: string
     image: string
     excerpt: string
+    hideImage?: boolean
   },
   content: () => JSX.Element,
   readingTime: string

@@ -2,6 +2,8 @@ import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const isExternalHref = (href: string) => /^(https?:)?\/\//.test(href)
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Headings
@@ -35,11 +37,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
 
     // Links and images
-    a: ({ href, children }) => (
-        <Link href={href as string} className="text-blue-600 hover:underline">
+    a: ({ href, children }) => {
+      const resolvedHref = href as string
+
+      if (isExternalHref(resolvedHref)) {
+        return (
+          <a href={resolvedHref} rel="noreferrer nofollow" className="text-blue-600 hover:underline">
+            {children}
+          </a>
+        )
+      }
+
+      return (
+        <Link href={resolvedHref} className="text-blue-600 hover:underline">
           {children}
         </Link>
-    ),
+      )
+    },
     img: ({ src, alt, width, height }) => (
         <Image
             src={src as string}
@@ -70,4 +84,3 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components,
   }
 }
-

@@ -1,0 +1,35 @@
+---
+title: "AI Model Intelligence vs. Price: Find the Best Trade-off"
+date: 2026-08-10 08:00:00
+image: /blog-images/ai-intelligence-vs-blended-price.png
+excerpt: "A searchable, interactive comparison of more than 100 AI models by intelligence score and blended price per million tokens."
+hideImage: true
+---
+
+import AIModelExplorer from '@/app/components/ai-model-explorer'
+
+Choosing an AI model is rarely just about finding the highest score. A model can be excellent and still be a poor choice for everyday work if it costs too much. A cheaper model can be a great deal, but only if it is capable enough for the task.
+
+This chart compares **100+ models** using two dimensions:
+
+- **AI Intelligence Index** on the vertical axis: higher means stronger overall benchmark performance.
+- **Blended price** on the horizontal axis: an approximate cost per 1 million tokens, shown on a logarithmic scale.
+
+<AIModelExplorer />
+
+## How to read the chart
+
+The dotted lines split the chart at an intelligence score of 50 and a blended price of $1 per million tokens:
+
+- **Cheap and Smart**: the most attractive area for high-volume work.
+- **Expensive and Smart**: strong models that may be worth the extra cost for difficult tasks.
+- **Cheap and Weak**: inexpensive models that can still be useful for simple work.
+- **Expensive and Weak**: models where the price is harder to justify from this comparison alone.
+
+The horizontal axis is logarithmic. This keeps a model costing a few cents visible next to models costing several dollars or more. It also means that equal visual distances represent ratios rather than equal dollar differences.
+
+## A note about the data
+
+This is a snapshot rather than a permanent ranking. Model versions, benchmark scores, provider pricing, and routing options change frequently. Prices are blended estimates, so the real cost for a particular workload will depend on the input/output mix and the provider you use.
+
+The underlying comparison is based on the [Artificial Analysis model index](https://artificialanalysis.ai/models). Use it as a starting point for exploration, then check the latest model card and pricing before making a production decision.
