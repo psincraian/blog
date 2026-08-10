@@ -1,0 +1,19 @@
+app/components/ai-model-explorer.tsx
+  s_e31a3c92a4397b::t_17c5160de999ea 3-4,114,129-179,205-234,282
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "51afd1ea46174fbd318abcd759c44536d1f7f3f8",
+  "prompts": {},
+  "sessions": {
+    "s_e31a3c92a4397b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fea9f-1906-7121-ac8d-84305babf007",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Petru Rares Sincraian <psincraian@outlook.com>"
+    }
+  }
+}
