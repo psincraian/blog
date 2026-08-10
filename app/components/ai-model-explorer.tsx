@@ -1,7 +1,7 @@
 'use client'
 
-import {Pin, Search, X} from 'lucide-react'
-import {useMemo, useState} from 'react'
+import {Download, Pin, Search, X} from 'lucide-react'
+import {useMemo, useRef, useState} from 'react'
 import {AI_MODELS, AIModel} from './ai-model-data'
 
 const chart = {
@@ -111,6 +111,7 @@ const positionedModels = positionLabels()
 export default function AIModelExplorer() {
   const [query, setQuery] = useState('')
   const [selectedName, setSelectedName] = useState<string | null>(null)
+  const chartRef = useRef<SVGSVGElement>(null)
 
   const selectedModel = selectedName ? AI_MODELS.find((model) => model.name === selectedName) ?? null : null
   const normalizedQuery = query.trim().toLowerCase()
@@ -124,6 +125,57 @@ export default function AIModelExplorer() {
   const matchNames = useMemo(() => new Set(matches.map((model) => model.name)), [matches])
 
   const chooseModel = (model: AIModel) => setSelectedName(model.name)
+
+  const exportPng = () => {
+    const svg = chartRef.current
+    if (!svg) return
+
+    const clonedSvg = svg.cloneNode(true) as SVGSVGElement
+    clonedSvg.removeAttribute('class')
+    clonedSvg.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    clonedSvg.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    clonedSvg.querySelectorAll('circle[fill="#ffffff"][fill-opacity="0.01"]').forEach((hitTarget) => hitTarget.remove())
+
+    const svgBlob = new Blob([new XMLSerializer().serializeToString(clonedSvg)], {
+      type: 'image/svg+xml;charset=utf-8',
+    })
+    const svgUrl = URL.createObjectURL(svgBlob)
+    const image = new window.Image()
+
+    image.onload = () => {
+      const scale = 2
+      const canvas = document.createElement('canvas')
+      canvas.width = chart.width * scale
+      canvas.height = chart.height * scale
+      const context = canvas.getContext('2d')
+
+      if (!context) {
+        URL.revokeObjectURL(svgUrl)
+        return
+      }
+
+      context.fillStyle = '#ffffff'
+      context.fillRect(0, 0, canvas.width, canvas.height)
+      context.drawImage(image, 0, 0, canvas.width, canvas.height)
+      URL.revokeObjectURL(svgUrl)
+
+      canvas.toBlob((blob) => {
+        if (!blob) return
+
+        const downloadUrl = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = downloadUrl
+        link.download = 'ai-intelligence-vs-blended-price.png'
+        document.body.appendChild(link)
+        link.click()
+        link.remove()
+        URL.revokeObjectURL(downloadUrl)
+      }, 'image/png')
+    }
+
+    image.onerror = () => URL.revokeObjectURL(svgUrl)
+    image.src = svgUrl
+  }
 
   const handlePointKeyDown = (event: React.KeyboardEvent<SVGCircleElement>, model: AIModel) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -150,26 +202,36 @@ export default function AIModelExplorer() {
 
           <div className="w-full lg:max-w-sm">
             <label htmlFor="ai-model-search" className="sr-only">Search AI models</label>
-            <div className="relative">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" aria-hidden="true" />
-              <input
-                id="ai-model-search"
-                type="search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search models…"
-                className="w-full appearance-none rounded-xl border border-slate-300 bg-slate-50 py-2.5 pl-10 pr-10 text-sm text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-cyan-600 focus:ring-2 focus:ring-cyan-200"
-              />
-              {query && (
-                <button
-                  type="button"
-                  onClick={() => setQuery('')}
-                  className="absolute right-2 top-1/2 rounded-lg p-1.5 text-slate-500 transition hover:bg-slate-200 hover:text-slate-900"
-                  aria-label="Clear model search"
-                >
-                  <X className="h-4 w-4" aria-hidden="true" />
-                </button>
-              )}
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <div className="relative min-w-0 flex-1">
+                <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" aria-hidden="true" />
+                <input
+                  id="ai-model-search"
+                  type="search"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Search models…"
+                  className="w-full appearance-none rounded-xl border border-slate-300 bg-slate-50 py-2.5 pl-10 pr-10 text-sm text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-cyan-600 focus:ring-2 focus:ring-cyan-200"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery('')}
+                    className="absolute right-2 top-1/2 rounded-lg p-1.5 text-slate-500 transition hover:bg-slate-200 hover:text-slate-900"
+                    aria-label="Clear model search"
+                  >
+                    <X className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={exportPng}
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:border-cyan-500 hover:text-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+              >
+                <Download className="h-4 w-4" aria-hidden="true" />
+                Export PNG
+              </button>
             </div>
             <p className="mt-2 text-xs text-slate-500" aria-live="polite">
               {normalizedQuery ? `${matches.length} match${matches.length === 1 ? '' : 'es'}` : `${AI_MODELS.length} models`}
@@ -217,6 +279,7 @@ export default function AIModelExplorer() {
 
       <div className="overflow-hidden px-2 py-4 sm:px-5">
         <svg
+          ref={chartRef}
           viewBox={`0 0 ${chart.width} ${chart.height}`}
           className="block h-auto w-full"
           style={{width: '100%', height: 'auto'}}
